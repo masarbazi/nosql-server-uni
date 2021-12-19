@@ -1,0 +1,15 @@
+{
+  "name": "nosql-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 2",
+    "easyDB": "nodemon server.js"
+  },
+  "author": "Mohammad Amin Sarbazi - 985367022",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
