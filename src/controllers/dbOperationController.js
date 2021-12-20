@@ -1,3 +1,6 @@
+const { validateQuery } = require('./validationController');
+const { create, update, deleteDocument } = require('./crudController');
+
 module.exports.getArguments = (query, response) => {
   /**
    * will return operation and operation payload
@@ -22,6 +25,16 @@ module.exports.getArguments = (query, response) => {
   }
 
   console.log('operation', operation);
-  console.log('payload', queryPayload);
-  // return { operation, queryPayload };
+  // console.log('payload', queryPayload);
+  const { collectionName, documentPayload } = validateQuery(queryPayload);
+  console.log('collectionName', collectionName);
+  console.log('document payload', documentPayload);
+
+  if (operation == 'create') {
+    create(collectionName, documentPayload);
+  } else if (operation == 'update') {
+    update(collectionName, documentPayload);
+  } else if (operation == 'delete') {
+    deleteDocument(collectionName, documentPayload);
+  }
 }; // end getArguments

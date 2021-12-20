@@ -1,7 +1,6 @@
 const net = require('net');
 
 const { spread } = require('./src/controllers/spreadController');
-const { validateQuery } = require('./src/controllers/validationController');
 const errorHandler = require('./src/controllers/errorHandler');
 
 const server = net.createServer((socket) => {

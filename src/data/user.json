@@ -1,11 +1,6 @@
 {
-  "data": {
-    "3332kkkalj4lkjt3": {
-      "name": "Ali",
-      "phoneNumber": "09215537231"
-    }
-  },
+  "data": { "61c04dd664e457bb67d39d3f": { "name": "Mohammad" } },
   "indexing": {
-    "name": [{ "value": "Ali", "document": "3332kkkalj4lkjt3" }]
+    "name": [{ "value": "Mohammad", "document": "61c04dd664e457bb67d39d3f" }]
   }
 }
