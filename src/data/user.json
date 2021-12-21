@@ -1,23 +1,23 @@
 {
   "data": {
-    "61c04dd664e457bb67d39d3f": {
-      "name": "Mohammad",
+    "61c23ebb95117f6a4ff67f3f": { "name": "Hesam" },
+    "61c23ee995117f6a4ff67f40": { "name": "Ghader" },
+    "61c23eee95117f6a4ff67f41": { "name": "Ali" },
+    "61c3efa95117f6a4ff67f43": { "name": "Bahman" },
+    "61c23f0095117f6a4ff67f44": { "name": "Zahra" },
+    "61c246287432d9dd2de12d3e": {
+      "name": "Nima",
       "device": "61c0e2c353fcb3a1767bc57b"
-    },
-    "61c0d69fc79d9612254eab96": { "name": "Ahamad" },
-    "61c0d7438c24c81d9d3a5264": { "name": "Hasan" },
-    "61c0de85590496af8cde4d32": { "name": "Abbas" },
-    "61c0e7530ee9d0f49ca9af7f": { "name": "Arman" },
-    "61c2078dbfdb9dcaf004ccf1": { "name": "Bahman" }
+    }
   },
   "indexing": {
     "name": [
-      { "value": "Abbas", "document": "61c0de85590496af8cde4d32" },
-      { "value": "Ahamad", "document": "61c0d69fc79d9612254eab96" },
-      { "value": "Arman", "document": "61c0e7530ee9d0f49ca9af7f" },
-      { "value": "Bahman", "document": "61c2078dbfdb9dcaf004ccf1" },
-      { "value": "Hasan", "document": "61c0d7438c24c81d9d3a5264" },
-      { "value": "Mohammad", "document": "61c04dd664e457bb67d39d3f" }
+      { "value": "Ali", "document": "61c23eee95117f6a4ff67f41" },
+      { "value": "Bahman", "document": "61c3efa95117f6a4ff67f43" },
+      { "value": "Ghader", "document": "61c23ee995117f6a4ff67f40" },
+      { "value": "Hesam", "document": "61c23ebb95117f6a4ff67f3f" },
+      { "value": "Nima", "document": "61c246287432d9dd2de12d3e" },
+      { "value": "Zahra", "document": "61c23f0095117f6a4ff67f44" }
     ]
   },
   "relations": { "device": "device" }

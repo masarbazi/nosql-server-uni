@@ -14,7 +14,7 @@ module.exports.create = (collectionName, documentPayload, socket) => {
   // console.log('file content\n', fileContent);
   if (!fileContent) {
     saveFile(collectionName, JSON.stringify(dataTemplate));
-    return this.create(collectionName, documentPayload);
+    return this.create(collectionName, documentPayload, socket);
   }
   let parsedFileContent = JSON.parse(fileContent);
   parsedFileContent.data[id] = documentPayload;
@@ -138,9 +138,11 @@ const binarySearch = (targetValue, array) => {
       result = midItem;
       break;
     } else if (midItem.value > targetValue) {
+      high = mid;
       mid = Math.floor((low + mid) / 2);
       continue;
     } else if (midItem.value < targetValue) {
+      low = mid;
       mid = Math.floor((high + mid) / 2);
       continue;
     }
