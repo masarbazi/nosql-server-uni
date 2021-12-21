@@ -71,7 +71,7 @@ module.exports.read = (collectionName, documentPayload, socket) => {
         result.push({ [collectionName]: fileContent[collectionName].data });
       }
     }
-    console.log('Result', result);
+    console.log('Returned all collections');
     socket.write(JSON.stringify(result) + '\r\n');
   }
   const fileContent = getFile(collectionName);
@@ -100,9 +100,29 @@ module.exports.read = (collectionName, documentPayload, socket) => {
     }
   }
 
+  if (parsedFileContent.relations)
+    populate(result, parsedFileContent.relations);
   console.log('Result', result);
   socket.write(JSON.stringify(result) + '\r\n');
 };
+
+const populate = (documents, relations) => {
+  // documents typeof array
+  // relations typeof object (same structure in *.json files)
+  const relationsKeys = Object.keys(relations);
+  for (let document of documents) {
+    const documentKeys = Object.keys(document);
+    for (let docKey of documentKeys) {
+      if (relationsKeys.includes(docKey)) {
+        // caught relation
+        const fileContent = getFile(relations[docKey]);
+        const parsedFileContent = JSON.parse(fileContent);
+        const relatedDocumentId = document[docKey];
+        document[docKey] = parsedFileContent.data[relatedDocumentId];
+      }
+    }
+  }
+}; // end popualte
 
 const binarySearch = (targetValue, array) => {
   // array contains collection of objects

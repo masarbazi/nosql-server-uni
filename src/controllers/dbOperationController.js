@@ -1,5 +1,7 @@
 const { validateQuery } = require('./validationController');
 const { create, update, deleteDocument, read } = require('./crudController');
+const { addIndex } = require('./indexingController');
+const { addRelation } = require('./relationController');
 
 module.exports.getArguments = (query, socket) => {
   /**
@@ -36,5 +38,9 @@ module.exports.getArguments = (query, socket) => {
     deleteDocument(collectionName, documentPayload, socket);
   } else if (operation == 'find') {
     read(collectionName, documentPayload, socket);
+  } else if (operation == 'index') {
+    addIndex(collectionName, documentPayload, socket);
+  } else if (operation == 'relate') {
+    addRelation(collectionName, documentPayload, socket);
   }
 }; // end getArguments

@@ -1,6 +1,9 @@
 {
   "data": {
-    "61c04dd664e457bb67d39d3f": { "name": "Mohammad" },
+    "61c04dd664e457bb67d39d3f": {
+      "name": "Mohammad",
+      "device": "61c0e2c353fcb3a1767bc57b"
+    },
     "61c0d69fc79d9612254eab96": { "name": "Ahamad" },
     "61c0d7438c24c81d9d3a5264": { "name": "Hasan" },
     "61c0de85590496af8cde4d32": { "name": "Abbas" },
@@ -16,5 +19,6 @@
       { "value": "Hasan", "document": "61c0d7438c24c81d9d3a5264" },
       { "value": "Mohammad", "document": "61c04dd664e457bb67d39d3f" }
     ]
-  }
+  },
+  "relations": { "device": "device" }
 }
