@@ -12,3 +12,16 @@ module.exports.saveFile = (name, content) => {
   const filePath = `${__dirname}/../data/${name}.json`;
   fs.writeFileSync(filePath, content);
 };
+
+module.exports.getAllDataFilesContent = () => {
+  let result = [];
+  const folderPath = `${__dirname}/../data`;
+  const files = fs.readdirSync(folderPath);
+  for (let file of files) {
+    const fileContent = fs.readFileSync(`${folderPath}/${file}`);
+    const parsedFileContent = JSON.parse(fileContent);
+    const collectionName = file.substring(0, file.indexOf('.'));
+    result.push({ [collectionName]: parsedFileContent });
+  }
+  return result;
+};

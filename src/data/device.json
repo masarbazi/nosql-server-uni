@@ -1,13 +1,16 @@
 {
   "data": {
-    "klthlk2th4klt": {
-      "type": "Phone",
-      "serialNumber": "33253k5j32kj53234243253253k2lj5",
-      "price": "1000$",
-      "user": "3332kkkalj4lkjt3"
+    "61c0e2c353fcb3a1767bc57b": {
+      "brand": "Samsung",
+      "series": "Galaxy",
+      "model": "J5 Prime",
+      "price": "500"
+    },
+    "61c0e2c353fcb3a1767bc48b": {
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "price": "1100"
     }
   },
-  "relations": {
-    "user": "user"
-  }
+  "indexing": {}
 }

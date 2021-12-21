@@ -1,7 +1,7 @@
 const { validateQuery } = require('./validationController');
-const { create, update, deleteDocument } = require('./crudController');
+const { create, update, deleteDocument, read } = require('./crudController');
 
-module.exports.getArguments = (query, response) => {
+module.exports.getArguments = (query, socket) => {
   /**
    * will return operation and operation payload
    * db.create("user: {name: "Ali"}")
@@ -11,30 +11,30 @@ module.exports.getArguments = (query, response) => {
   const operation = query.substring(3, query.indexOf('('));
   if (!operation || !operation.match(operationRegex)) {
     console.log('Operation validation failed');
-    response('Validation Failed');
+    socket.write('Validation Failed');
     return null;
   }
   const queryPayload = query.substring(
     query.indexOf('(') + 2,
     query.lastIndexOf(')') - 1
   );
-  if (!queryPayload) {
-    console.log('Operation argument validation failed');
-    response('Validation Failed');
-    return null;
-  }
 
   console.log('operation', operation);
   // console.log('payload', queryPayload);
-  const { collectionName, documentPayload } = validateQuery(queryPayload);
+  const { collectionName, documentPayload } =
+    queryPayload == ''
+      ? { collectionName: null, documentPayload: null } // this type is used to query all data or delete all collections
+      : validateQuery(queryPayload);
   console.log('collectionName', collectionName);
   console.log('document payload', documentPayload);
 
   if (operation == 'create') {
-    create(collectionName, documentPayload);
+    create(collectionName, documentPayload, socket);
   } else if (operation == 'update') {
-    update(collectionName, documentPayload);
+    update(collectionName, documentPayload, socket);
   } else if (operation == 'delete') {
-    deleteDocument(collectionName, documentPayload);
+    deleteDocument(collectionName, documentPayload, socket);
+  } else if (operation == 'find') {
+    read(collectionName, documentPayload, socket);
   }
 }; // end getArguments
